@@ -1,0 +1,44 @@
+package TestNG;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+ 
+public class HomePage {
+       public WebDriver driver = new FirefoxDriver();
+       String appUrl = https://www.propertycapsule.com/;
+     
+ 
+@Test
+public void MapMakerButtonClick() {
+             // launch the firefox browser and open the application url
+              driver.get(appurl);
+              
+// maximize the browser window
+              driver.manage().window().maximize();
+              
+// declare and initialize the variable to store the expected title of the webpage.
+              String expectedTitle =  "PROPERTY CAPSULE: Retail + Commercial Real Estate iPad Leasing App, Automated Marketing Flyers, Site Plans, & More " ;
+              
+// fetch the title of the web page and save it into a string variable
+              String actualTitle = driver.getTitle();
+              Assert.assertEquals(expectedTitle,actualTitle);
+
+// verify that the “Map Maker” is displayed and enabled
+              boolean mapMakerButtonPresence = driver.findElement(By.id("market-btn")).isDisplayed();
+              boolean mapMakerButtonEnabled = driver.findElement(By.id("market-btn")).isEnabled();
+ 
+              if (mapMakerButtonPresence==true && mapMakerButtonEnabled==true)
+              {
+                     // click on the search button
+                     WebElement MapMakerButton = driver.findElement(By.id("market-btn"));
+                     MapMakerButton.click();
+              }
+              
+              
+// close the web browser
+              driver.close();
+}
+}

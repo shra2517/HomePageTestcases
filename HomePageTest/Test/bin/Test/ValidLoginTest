@@ -1,0 +1,49 @@
+package TestNG;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+ 
+public class HomePage {
+       public WebDriver driver = new FirefoxDriver();
+       String appUrl = https://www.propertycapsule.com/;
+ 
+@Test
+public void ValidLogin() {
+             // launch the firefox browser and open the application url
+              driver.get(appUrl);
+              
+// maximize the browser window
+              driver.manage().window().maximize();
+
+// click on the enterprise admin button
+              WebElement AdminLogin = driver.findElement(By.class("btn sign-up-btn enterprise-admin-btn"));
+              AdminLogin.click();
+
+// declare and initialize the variable to store the expected title of the webpage.
+              String expectedTitle =  Property Capsule ;
+              
+// fetch the title of the web page and save it into a string variable
+              String actualTitle = driver.getTitle();
+              Assert.assertEquals(expectedTitle,actualTitle);
+              
+// enter a valid email in the email textbox
+              WebElement email = driver.findElement(By.name(username));
+              email.clear();
+              email.sendKeys("alltesta78@gmail.com");
+ 
+// enter a valid password in the password textbox--
+              WebElement password = driver.findElement(By.name(password));
+              password.clear();
+              password.sendKeys("password123");
+              
+// click on the Log in button
+              WebElement LogInButton = driver.findElement(By.class(big-btn));
+              LogInButton.click();
+              
+// close the web browser
+              driver.close();
+}
+}
